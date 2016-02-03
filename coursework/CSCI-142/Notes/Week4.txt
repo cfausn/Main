@@ -1,0 +1,31 @@
+Interface Prioritizable{
+	double getPriority();
+}
+
+interface Comparable<T extends Comparable<T>>{
+	int compareTo(T other);
+}
+
+
+xp = x.getPrioirty();
+
+yp = y.getPriority();
+
+
+Class Person implements Comparable<Person> implements Prioritizable{
+	private String given;
+	private String family;
+
+	@Override
+	int compareTo(Person other){
+		int result = this.family.compareTo(other.family);
+		if (result == 0) result = this.given.compareTo(other.given);
+		return result;
+}
+}
+
+Inheriting Super Classes
+
+string formatting
+
+return String.format( "%s, $5.2f

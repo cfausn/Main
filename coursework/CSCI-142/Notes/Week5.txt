@@ -1,0 +1,11 @@
+Character.getNumericValue < used in lab for hashing
+
+Kinds of collections
+- No ordering
+	HashSet
+- Client ordering List
+	List
+- Collection-determined ordering
+	Queue
+	TreeSet
+

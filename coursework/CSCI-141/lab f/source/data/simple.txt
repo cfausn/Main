@@ -1,0 +1,4 @@
+Gold 1 5 750
+Silver 1 1 400
+Rhodium 1 4 500
+Platinum 1 6 1000

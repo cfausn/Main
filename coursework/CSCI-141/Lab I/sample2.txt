@@ -1,0 +1,8 @@
+John $1
+Lisa $2
+Carly $2
+Zacharry $1
+John $5
+Carly $2
+George $5
+David $10

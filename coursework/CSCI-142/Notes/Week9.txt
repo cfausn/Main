@@ -1,0 +1,26 @@
+Lecture Code:
+
+A -> D?
+
+A-F-E-D : 20
+A-F-C-D : 19
+
+BFS: A-E-D : 23 <- WRONG
+GREEDY: A-B-F-E-D : 26  <-WRONG
+
+
+
+Edsger Dijkstra
+
+Shortest-path algorithm
+
+A:0 <- certain ALL OTHERS infinity
+
+NEXT STEP:
+
+A:0 (certain), E:14, F:9, B:7 (certain) ALL OTHERS INFINITY
+A-B now chosen
+
+7 = total
+
+CHECK CLASS NOTES

@@ -1,0 +1,83 @@
+Heaps:
+
+Complete: all levels except possibly the last are full of items.
+
+Flush left: no holes in the left-to-right sequence
+
+Min heap: all subtree values are greater and recursively so. Top of the tree is less than or equal to its subtree's values.
+
+							7
+					11				21
+				55		60		43		24
+			76	      88  10
+
+add(heap, 10):
+	put node(10) into next location
+	compare node value to its parent's value
+	as long as node value is greater than parents, swap values:
+		move up the parent
+		compare again
+
+
+							7
+					11				21
+				55		10		43		24
+			76	      88  60
+
+
+							7
+					10				21
+				55		11		43		24
+			76	      88  60
+
+
+
+siftUp(heap, node):
+	while node != heap.root and node.value < node.parent.value
+		#swap
+		node.value, node.parent.value = node.parent.value, node.value
+		node = node.parent
+
+
+remove(heap) return smallest
+	result = heap.next.value
+	put last value into root
+	remove node
+	sift down from root
+	loop:
+		node = heap.root
+		minNode = minNode(node)
+		as long as minNode is not node:
+			#swap
+			node.value, minNode.value = minNode.value, node.value
+			node = minNode
+			minNode = findMinNode(node)
+
+findMinNode(node)
+	min = node.value
+	if node.left != None and node.left.value < min:
+		min = node.left.value
+	elif node.right != None and node.right.value < min:
+		min = node.right.value
+
+
+
+getting to parent node 
+
+parent(index) = index // 2
+
+rightChild(index) = (index * 2) + 2
+
+leftChild(index) = (index * 2) + 1
+
+
+
+heapSort(data):
+	heap = Heap('min')
+	for item in data:
+		add(heap, item)
+	lst = []
+	while heap.size > 0:
+		lst.append(remove(heap))
+	return lst
+	return min

@@ -1,0 +1,52 @@
+myNode= Node('cat', None)
+myNode= Node('dog',myNode)
+
+ll = linkedList(myNode, size(myNode), None)
+
+
+append(llist, item)
+
+if llist.head == None:
+	llist.head = Node('dog', None)
+else:
+	appendRec(llist.head,item)
+
+llist.size += 1
+llist
+
+
+appendRec(Node, elm):
+	if Node.next == None:
+		Node.next = Node(elm, None)
+	else:
+		appendRec(Node.next, elm)
+
+
+
+append(llist, item)
+
+node = Node(item, None)
+if llist.head == None:
+	llist.head = node
+else:
+	previous = lst.head
+	while previous.next != None:
+		previous = previous.next
+	previous.next = node
+
+llist.size += 1
+
+
+insertAt(lst, index, item):
+
+if index < 0 or index > lst.size:
+	raise IndexError("Index out or range: ")
+if index == 0:
+	lst.head = Node(value, lst.head)
+
+else:
+	previous = lst.head
+	while index > 1:
+		previous = previous.next
+		index -= 1
+	previous.next = Node(item, previous.next)

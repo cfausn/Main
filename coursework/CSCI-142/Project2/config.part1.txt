@@ -1,0 +1,6 @@
+PLAYER_MODULES CJF1613
+
+PRE_MOVE PlayerMove(1,False,7,3,7,5)
+PRE_MOVE PlayerMove(1,False,7,5,7,7)
+PRE_MOVE PlayerMove(1,False,7,6,9,6)
+PRE_MOVE PlayerMove(1,False,7,7,9,7)

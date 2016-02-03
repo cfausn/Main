@@ -1,0 +1,26 @@
+Time Complexities
+
+
+		Linked List	Array	Assumptions
+
+Access Item	O(N)		O(1)
+
+Add Item	O(N)		O(N)	Reach Location/Shifts
+
+Remove Item	O(N)		O(N)	Reach Location/Shifts
+
+Search Find 	O(N)		O(N)	unsorted
+
+Get Size	O(1)		O(1)
+
+
+
+word_count (hTable, filename):
+
+	for line in open(filename):
+		words = line.strip().split(",:;")
+		for wd in words:
+			if wd in hTable:
+				hTable[wd] += 1
+			else:
+				hTable[wd] = 1

@@ -1,0 +1,63 @@
+Tree data structures
+
+
+Data trees:
+
+binary search trees
+
+			3
+		2		5
+	0
+	   1
+
+
+^ notice how the 1 was inserted to the 0
+
+Balance of a tree is 'bushy'. It's fat and full. It spreads out.
+
+Unbalanced tree looks skewed on one side. More nodes on one side. looks weird (like above tree)
+
+
+class BinaryTree(rit_object):
+	__slots__ = ('left','value', 'right')
+	_types = ('BinaryTree', int, 'BinaryTree')
+
+
+t0 ------>  2
+	1	7
+
+t0 = BinaryTree(BinaryTree(None, 1, None), 2, BinaryTree(None,7,None))
+
+
+def BTF(tree):
+	if tree == None:
+		return [...]
+	else:
+		return [...]
+		BTF(tree.left)
+		[...]
+		tree.value
+		[...]
+		BTF(tree.right)
+		[...]
+
+
+def toString(tree):
+	if tree == None:
+		return ""
+	else:
+		return toString(tree.left) + str(tree.value) + " " + toString(tree.right)
+
+def search(tree, target):
+	if tree == None:
+		return False
+	else:
+		if tree.value == target:
+			return True
+		elif tree.value < target:
+			return search(tree.right, target)
+		elif tree.value > target:
+			return search(tree.left, target)
+
+search function is log base 2 of N
+	worst case is O(N)

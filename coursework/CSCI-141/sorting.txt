@@ -1,0 +1,88 @@
+
+O(n^2) - insertion sort, bubble sort
+
+O(nlog(base 2)n) - heapsort, mergesort, quicksort
+
+
+def mergeSort(data):
+	if data == []:
+		return data
+	else if data[1:] == []:
+		return data
+	else:
+		h1, h2 = split(data)
+		merge(mergeSort(h1),mergeSort(h2))
+
+def split(data):
+	evens = []
+	odds = []
+	isEven = True
+	for e in data:
+		if isEven:
+			evens.append(e)
+		else:
+			odds.append(e)
+		isEven = not isEven
+	return (evens,odds)
+
+
+def merge(h1,h2):
+	result = []
+	index1 = 0
+	index2 = 0
+	
+	while index1 < len(h1) and index2 < len(h2):
+		if h1[index1] <= h2[index2]:
+			result.append(h1[index])
+			index1 += 1
+		else:
+			result.append(h2[index2])
+			index2 += 1
+		
+	if index1 < len(h1):
+			result.extend(h1[index1:])
+	elif index2 < len(h2):
+			result.extend(h2[index2:])
+	return result
+
+n = 8 items
+
+--- 1 split of N terms = N
+
+-- 2 * N/2 = N
+
+-- 4 * N/4 = N
+
+----------
+
+--- 8 * N/8 merges
+-- 4 * N/4
+-- 2 * N/2
+
+so logbase2 N * N is the complexity
+
+
+
+
+Quicksorting
+
+def quickSort(data):
+	if data == []:
+		return []
+	else:
+		pivot = data[0]
+		(less,same,more) = partition(pivot,data)
+		return quickSort(less) + same + quickSort(more)
+
+def partition(pivot, data):
+	(less, same, more) = ([],[],[])
+	
+	for e in data:
+		if e < pivot:
+			less.append(e)
+		elif e > pivot:
+			more.append(e)
+		else:
+			same.append(e)
+	
+	return (less, same, more)

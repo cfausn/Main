@@ -1,0 +1,5 @@
+Silver 3 6 2
+Gold 2 12 13
+Platinum 3 13 15
+Rhodium 4 8 12
+Palladium 5 7 9
