@@ -1,0 +1,101 @@
+<html>
+    <head>
+            <title>Edit Profile</title>
+
+            {% load staticfiles %}
+
+            <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+            <link rel="icon"
+                  type="image/png"
+                  href="http://i.imgur.com/XD17hkZ.png"/>
+
+            <!-- Icons from Google Web Fonts -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            <!-- "Paper" theme from bootswatch.com (opensource) -->
+            <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+            <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        {% include "HealthNet/navbar.html" %}
+
+        <div class="jumbotron">
+            {% block content %}
+                <h2>{{firstName}} {{lastName}}'s Profile Info</h2>
+            <form method="POST">{% csrf_token %}
+                <ul>
+                    First Name<br>
+                    <input type="text" name="first_name">
+                    <br>
+                    {% if patientProfile %}
+                    Middle Name<br>
+                    <input type="text" name="first_name">
+                    <br>
+                    {% endif %}
+                    Last Name<br>
+                    <input type="text" name="last_name">
+                    <br>
+                    {% if patientProfile %}
+                    Sex:<br>
+                    <input type="radio" name="sex" value="Male"> Male
+                    <br>
+                    <input type="radio" name="sex" value="Female"> Female
+                    <br>
+                    <input type="radio" name="sex" value="Other"> Other
+                    <br>
+                    <input type="radio" name="sex" value="Unspecified"> Unspecified
+                    <br>
+                    {% endif %}
+                    {% if patientProfile or nurseProfile %}
+                    Hospital<br>
+                    <select name="hospital">
+                        {% for hospital in hospitals %}
+                        <option value="{{hospital.name}}">{{hospital.name}}</option>
+                        {% endfor %}
+                    </select>
+                    {% endif %}
+                    {% if doctorProfile %}
+                        Hospital<br>
+                        {% for hospital in hospitals %}
+                        <input type="checkbox" name="hospital" value="{{hospital.name}}"> {{hospital.name}}
+                        <br>
+                        {% endfor %}
+                    {% endif %}
+                    {% if patientProfile %}
+                    <br>
+                    Emergency Contact First Name<br>
+                    <input type="text" name="emergency_first">
+                    <br>
+                    Emergency Contact Last Name<br>
+                    <input type="text" name="emergency_last">
+                    <br>
+                    Emergency Contact Phone Number<br>
+                    <input type="text" name="emergency_phone">
+                    <br>
+                    Height (inches)<br>
+                    <input type="number" name="height">
+                    <br>
+                    Weight (pounds)<br>
+                    <input type="number" name="weight">
+                    <br>
+                    Date of Birth <br>
+                    <input type="date" name="DOB">
+                    <br>
+                    Phone Number <br>
+                    <input type="text" name="phone">
+                    <br>
+                    {% endif %}
+
+
+                </ul>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="button" class="btn btn-primary" value="Cancel" onclick="window.location.href='javascript:history.back()'">
+            </form>
+            {% endblock %}
+        </div>
+        {% include "HealthNet/footer.html" %}
+    </body>
+</html>

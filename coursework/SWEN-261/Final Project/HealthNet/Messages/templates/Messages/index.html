@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>{{firstName}} {{lastName}}'s Dashboard</title>
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'Profiles\dashboard.css' %}" />
+
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+
+    </head>
+
+    <body>
+        {% include "HealthNet/navbar.html" %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <label>Message Recipients</label>
+            {{message.recipients}} <br>
+            <br>
+
+            <label>Message Text </label>
+            {{message.text}}
+
+            <input type="submit" class="btn btn-primary" value="Submit" />
+            <input type="button" value="Cancel" class="btn btn-primary" onclick="window.location.href='/'">
+
+        </form>
+
+        {% include "HealthNet/footer.html" %}
+
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>List of Inactive Accounts</title>
+
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+        <link rel="icon"
+              type="image/png"
+              href="http://i.imgur.com/XD17hkZ.png"/>
+
+        <!-- Icons from Google Web Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- "Paper" theme from bootswatch.com (opensource) -->
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+    {% include "HealthNet/navbar.html" %}
+
+        <div class="jumbotron">
+            <h2>List of Inactive Accounts</h2>
+            <div class="well" style="overflow-y:scroll; height:400px; width: 600px;">
+                <ul>
+                    {% for user in userList %}
+                    <li>
+                        {{user.username}}
+                        <form method="POST">{% csrf_token %}
+                             <input hidden type="text" name="userReactivate" value="{{user.username}}">
+                             <button class="btn btn-primary btn-xs" type="submit" name="reactivate" onclick="
+                                     if (confirm('Reactivate this account?')){
+                                        submit;
+                                     } else {
+                                        return false;
+                                     }
+                                     "
+                                     >Reactivate Account</button>
+                        </form>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <button class="btn btn-default" onclick="window.location.href='/Profiles'">Manage Active Accounts</button>
+            <br>
+        </div>
+
+        {% include "HealthNet/footer.html" %}
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+            <title>Create Surgery</title>
+
+            {% load staticfiles %}
+
+            <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+            <link rel="icon"
+                  type="image/png"
+                  href="http://i.imgur.com/XD17hkZ.png"/>
+
+            <!-- Icons from Google Web Fonts -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            <!-- "Paper" theme from bootswatch.com (opensource) -->
+            <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+            <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        {% include "HealthNet/navbar.html" %}
+
+        <div class="jumbotron">
+            {% block content %}
+                <h2>Add Surgery</h2>
+            <form method="POST">{% csrf_token %}
+                <ul>
+                    Surgery Name:<br>
+                    <input type="text" name="name">
+                    <br>
+                    Details:<br>
+                    <textarea rows="4" name="details" cols="50"></textarea>
+                    <br>
+                    Date:<br>
+                    <input type="date" name="date">
+                </ul>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="button" class="btn btn-primary" value="Cancel" onclick="window.location.href='javascript:history.back()'">
+            </form>
+            {% endblock %}
+        </div>
+        {% include "HealthNet/footer.html" %}
+    </body>
+</html>

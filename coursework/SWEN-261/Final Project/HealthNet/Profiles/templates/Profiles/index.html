@@ -1,0 +1,477 @@
+<head>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+
+    <title>Profiles List</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+
+
+</head>
+
+<body>
+    {% include "HealthNet/navbar.html" %}
+
+    <div class="jumbotron">
+
+
+    {% if isPatient or isDoctor or isNurse %}
+    <script language="javascript">
+        window.location.href = './{{id}}/profile'
+    </script>
+    {% endif %}
+
+    {% if not p.is_anonymous %}
+            {% for field in p %}
+                {% if field.field.required %}
+                    {% if field.errors %}
+                        <script type="text/javascript">
+                            $(window).load(function(){
+                                $('#patient').modal('show');
+                            });
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% if not n.is_anonymous %}
+            {% for field in n %}
+                {% if field.field.required %}
+                    {% if field.errors %}
+                        <script type="text/javascript">
+                            $(window).load(function(){
+                                $('#nurse').modal('show');
+                            });
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+
+    {% if not d.is_anonymous %}
+            {% for field in d %}
+                {% if field.field.required %}
+                    {% if field.errors %}
+                        <script type="text/javascript">
+                            $(window).load(function(){
+                                $('#doctor').modal('show');
+                            });
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% if not a.is_anonymous %}
+            {% for field in a %}
+                {% if field.field.required %}
+                    {% if field.errors %}
+                        <script type="text/javascript">
+                            $(window).load(function(){
+                                $('#admin').modal('show');
+                            });
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+
+    {% if not h.is_anonymous %}
+            {% for field in h %}
+                {% if field.field.required %}
+                    {% if field.errors %}
+                        <script type="text/javascript">
+                            $(window).load(function(){
+                                $('#hospital').modal('show');
+                            });
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+
+
+    <div class="jumbotron">
+        <h2>Profiles</h2>
+        <p>(click username to see profile):</p>
+
+        <div class="well" style="overflow-y:scroll; height:400px; width: 600px;">
+            <ul>
+                {% for user in userList %}
+                <li>
+                    <a href = "../Profiles/{{user.theUser.id}}/profile"> {{user.getType}} : {{user.theUser.username}}</a>
+                    <form method="POST">{% csrf_token %}
+                         <input hidden type="text" name="userDelete" value="{{user.getType}},{{user.theUser.username}}">
+                         <button class="btn btn-danger btn-xs" type="submit" name="delete" onclick="
+                                 if (confirm('Set this user as inactive?')){
+                                    submit;
+                                 } else {
+                                    return false;
+                                 }
+                                 "
+                                 >Set as Inactive</button>
+                    </form>
+
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h2>Create Profiles</h2>
+        {% if notifyP %}
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">x</button>
+              <strong>Patient Created!</strong>
+            </div>
+            <br>
+        {% endif %}
+
+        {% if notifyN %}
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">x</button>
+              <strong>Nurse Created!</strong>
+            </div>
+            <br>
+        {% endif %}
+
+        {% if notifyD %}
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">x</button>
+              <strong>Doctor Created!</strong>
+            </div>
+            <br>
+        {% endif %}
+
+        {% if notifyA %}
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">x</button>
+              <strong>Admin Created!</strong>
+            </div>
+            <br>
+        {% endif %}
+
+        {% if notifyH %}
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">x</button>
+              <strong>Hospital Created!</strong>
+            </div>
+            <br>
+        {% endif %}
+
+        <button class="btn btn-default" data-target="#patient" data-toggle="modal">Create Patient Account</button>
+        <button class="btn btn-default" data-target="#nurse" data-toggle="modal">Create Nurse Account</button>
+        <button class="btn btn-default" data-target="#doctor" data-toggle="modal">Create Doctor Account</button>
+        <button class="btn btn-default" data-target="#admin" data-toggle="modal">Create Admin Account</button>
+        <h2>Create Hospitals</h2>
+        <button class="btn btn-default" data-target="#hospital" data-toggle="modal">Create Hospital</button>
+        <br>
+        <h2>Manage Inactive Accounts</h2>
+        <button class="btn btn-default" onclick="window.location.href='/Profiles/inactiveAccounts'">Manage Inactive Accounts</button>
+        <br><br>
+    </div>
+
+    <!-- Patient Registration Modal -->
+        <div id="patient" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><!--Register</--></h4>
+              </div>
+
+              <div class="modal-body">
+                    <!-- MAKE PRETTY -->
+
+                    {% block patient %}
+                        <h1>Patient Registration</h1>
+                        <form method="POST" id="patient_form">{% csrf_token %}
+
+                            {{ p.non_field_errors }}
+
+                            <label>Insurance Company: </label><br>{{p.insurance_name}}<br><br>
+
+                            {{ p.insurance_name.errors }}
+
+                            <label>Insurance Number: </label><br>
+                            <p>Must start with a letter, be 12 characters, and cannot contain special characters.</p>
+                            {{p.insurance_num}}<br><br>
+                            {{ p.insurance_num.errors }}
+
+
+                            <label>First Name: </label><br>{{p.firstName}}<br><br>
+                            {{ p.firstName.errors }}
+
+                            <label>Last Name: </label><br>{{p.lastName}}<br><br>
+                            {{ p.lastName.errors }}
+
+                            <label>Email: </label><br> {{p.username}}<br><br>
+                            {{ p.username.errors }}
+
+                            <label>Password: </label>
+                            <p>Must be between 8-15 characters and contain at least one number and one capital letter.</p>
+                            <input type="password" name="password1" value="" size="50" placeholder="Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br>
+                            <input type="password" name="password2" value="" size="50" placeholder="Re-type Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br><br>
+
+                            {{ p.password1.errors }}
+
+                            <label>Hospital:</label>
+                            <br>
+                            {{ p.hospital }}
+                            <br>
+                            {{ p.hospital.errors }}
+
+
+                            <br><br><br>
+
+
+
+                            <button type="submit" class="btn btn-primary" name="patient">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/Profiles/'">Cancel</button>
+                        </form>
+                    {% endblock %}
+
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+    <!-- Nurse Registration Modal -->
+        <div id="nurse" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><!--Register</--></h4>
+              </div>
+
+              <div class="modal-body">
+                    <!-- MAKE PRETTY -->
+
+                    {% block nurse %}
+                        <h1>Nurse Registration</h1>
+                        <form method="POST" id="nurse_form">{% csrf_token %}
+
+                            {{ n.non_field_errors }}
+
+
+                            <label>First Name: </label><br>{{n.firstName}}<br><br>
+                            {{ n.firstName.errors }}
+
+                            <label>Last Name: </label><br>{{n.lastName}}<br><br>
+                            {{ n.lastName.errors }}
+
+                            <label>Email: </label><br> {{n.username}}<br><br>
+                            {{ n.username.errors }}
+
+                            <label>Password: </label>
+                            <p>Must be between 8-15 characters and contain at least one number and one capital letter.</p>
+                            <input type="password" name="password1" value="" size="50" placeholder="Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br>
+                            <input type="password" name="password2" value="" size="50" placeholder="Re-type Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br><br>
+
+                            {{ n.password1.errors }}
+
+                            <label>Hospital:</label>
+                            <br>
+                            {{ n.hospital }}
+                            <br>
+                            {{ n.hospital.errors }}
+
+
+
+                            <button type="submit" class="btn btn-primary" name="nurse">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/Profiles/'">Cancel</button>
+                        </form>
+                    {% endblock %}
+
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+    <!-- Doctor Registration Modal -->
+        <div id="doctor" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><!--Register</--></h4>
+              </div>
+
+              <div class="modal-body">
+                    <!-- MAKE PRETTY -->
+
+                    {% block doctor %}
+                        <h1>Doctor Registration</h1>
+                        <form method="POST" id="doctor_form">{% csrf_token %}
+
+                            {{ d.non_field_errors }}
+
+
+                            <label>First Name: </label><br>{{d.firstName}}<br><br>
+                            {{ d.firstName.errors }}
+
+                            <label>Last Name: </label><br>{{d.lastName}}<br><br>
+                            {{ d.lastName.errors }}
+
+                            <label>Email: </label><br> {{d.username}}<br><br>
+                            {{ d.username.errors }}
+
+                            <label>Password: </label>
+                            <p>Must be between 8-15 characters and contain at least one number and one capital letter.</p>
+                            <input type="password" name="password1" value="" size="50" placeholder="Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br>
+                            <input type="password" name="password2" value="" size="50" placeholder="Re-type Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br><br>
+
+                            {{ d.password1.errors }}
+
+
+                            <label>Hospital:</label>
+                            <br>
+                            {{ d.hospital }}
+                            <br>
+                            {{ d.hospital.errors }}
+
+
+                            <button type="submit" class="btn btn-primary" name="doctor">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/Profiles/'">Cancel</button>
+                        </form>
+                    {% endblock %}
+
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+    <!-- Admin Registration Modal -->
+        <div id="admin" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><!--Register</--></h4>
+              </div>
+
+              <div class="modal-body">
+                    <!-- MAKE PRETTY -->
+
+                    {% block admin %}
+                        <h1>Admin Registration</h1>
+                        <form method="POST" id="admin_form">{% csrf_token %}
+
+                            {{ a.non_field_errors }}
+
+
+                            <label>First Name: </label><br>{{a.firstName}}<br><br>
+                            {{ a.firstName.errors }}
+
+                            <label>Last Name: </label><br>{{a.lastName}}<br><br>
+                            {{ a.lastName.errors }}
+
+                            <label>Email: </label><br> {{a.username}}<br><br>
+                            {{ a.username.errors }}
+
+                            <label>Password: </label>
+                            <p>Must be between 8-15 characters and contain at least one number and one capital letter.</p>
+                            <input type="password" name="password1" value="" size="50" placeholder="Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br>
+                            <input type="password" name="password2" value="" size="50" placeholder="Re-type Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br><br>
+
+                            {{ a.password1.errors }}
+                            <br>
+
+
+                            <button type="submit" class="btn btn-primary" name="admin">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/Profiles/'">Cancel</button>
+                        </form>
+                    {% endblock %}
+
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+
+
+    <!-- Hospital Registration Modal -->
+        <div id="hospital" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><!--Register</--></h4>
+              </div>
+
+              <div class="modal-body">
+                    <!-- MAKE PRETTY -->
+
+                    {% block hospital %}
+                        <h1>Hospital Registration</h1>
+                        <form method="POST" id="hospital_form">{% csrf_token %}
+
+                            {{ h.non_field_errors }}
+
+
+                            <label>Hospital Name: </label><br>{{h.name}}<br><br>
+                            {{ h.name.errors }}
+
+                            <label>Hospital Address: </label><br>{{h.address}}<br><br>
+                            {{ h.address.errors }}
+
+
+                            <button type="submit" class="btn btn-primary" name="hospital">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/Profiles/'">Cancel</button>
+                        </form>
+                    {% endblock %}
+
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+    </div>
+    {% include "HealthNet/footer.html" %}
+
+</body>

@@ -1,0 +1,404 @@
+<html>
+    <head>
+        <title>Welcome to HealthNet</title>
+
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'HealthNet\index.css' %}" />
+        <link rel="icon"
+              type="image/png"
+              href="http://i.imgur.com/XD17hkZ.png"/>
+
+        <!-- Icons from Google Web Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- "Paper" theme from bootswatch.com (opensource) -->
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <style>
+            .left{
+                display: none;
+            }
+        </style>
+
+
+
+    </head>
+
+    <body style="background-color: #f5f5f5">
+        {% for message in messages %}
+            <script type="text/javascript">
+                $(window).load(function(){
+                    $('#login').modal('show');
+                });
+            </script>
+        {% endfor %}
+
+        {% if not user.is_anonymous %}
+            {% for field in user %}
+                {% if field.field.required %}
+                    {% if field.errors %}
+                        <script type="text/javascript">
+                            $(window).load(function(){
+                                $('#register').modal('show');
+                            });
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">HealthNet</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <a data-toggle="modal" data-target="#login"> Sign in </a> </li>
+                    <li> <a data-toggle="modal" data-target="#register">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Welcome to HealthNet!</h1>
+                <div class="container">
+                    <div class="well">
+                        <p id="desc"><!--Insert description here--></p>
+
+                    </div>
+                </div>
+
+                <form id="buttons">
+                    <p>&ensp;<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">Sign in</button>
+                        &ensp;&ensp;
+                        <button data-toggle="tooltip" title="If you have an account, log in here." data-placement="right" class="tip" onclick="return false">
+                        ?
+                        </button>
+                    </p>
+                    <br>
+
+                    <!-- <button type="button" class="btn btn-primary btn-lg" onclick="location.href='/Register/ '"> -->
+                    <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">Register</button>
+                        &ensp;
+                        <button data-toggle="tooltip" title="If you wish to create an account, click the 'Register' button." data-placement="right" class="tip" onclick="return false">
+                            ?
+                        </button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="login" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><!--Sign in</--></h4>
+              </div>
+
+              <div class="modal-body">
+                        <h1>Sign In</h1>
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+
+                        <form id="login_form" method="post" action="/">
+                            {% csrf_token %}
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: <input type="text" name="username" value="" size="50"/>
+                            <br />
+                            <br>
+                            Password: <input type="password" name="password" value="" size="50"/>
+                            <br />
+                            <br br>
+                            <input type="submit" class="btn btn-primary" value="Log In" name="login"/>
+                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" >
+
+                        </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+
+        <!-- Registration Modal http://www.w3schools.com/bootstrap/bootstrap_carousel.asp-->
+
+        <div id="register" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Patient Registration</h3>
+              </div>
+                <div class="modal-body">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                          <!-- Indicators -->
+
+                          <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1" class></li>
+                            <li data-target="#myCarousel" data-slide-to="2" class></li>
+                          </ol>
+
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner">
+                            <div class="item active">
+                                <form method="POST" id="registration_form">{% csrf_token %}
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                </div>
+                                    <h5><strong>Please first enter your insurance information.</strong></h5>
+                                    <h5>If you do not have health insurance, you will not be able to register for HealthNet.</h5>
+                                    <h6><a href = "https://www.healthcare.gov/apply-and-enroll/get-ready-to-apply/"  target="_blank">Click here</a> to find out how to apply and recieve health insurance.</h6>
+
+                                    {{ user.non_field_errors }}
+
+                                    {% if user.insurance_name.errors %}
+                                        <br>
+                                        <div class="alert alert-dismissible alert-wdiv ng">
+                                            {{ user.insurance_name.errors }}
+                                        </div>
+                                    {% endif %}
+                                    <label><h5><strong>Insurance Company: </strong></h5></label><br>{{user.insurance_name}}<br><br>
+
+                                    {% if user.insurance_num.errors %}
+                                        <br>
+                                        <div class="alert alert-dismissible alert-warning">
+                                            {{ user.insurance_num.errors }}
+                                        </div>
+                                    {% endif %}
+                                    <label><h5><strong>Insurance Number: </strong></h5></label><br>
+                                    <p>Must start with a letter, be 12 characters, and cannot contain special characters.</p>
+                                    {{user.insurance_num}}<br><br><br>
+
+
+                            </div>
+
+                            <div class="item">
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" style="width: 33%"></div>
+                                </div>
+                                <br><br>
+                                {% if user.firstName.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                      {{ user.firstName.errors }}
+                                    </div>
+                                {% endif %}
+                                <label><h5><strong>First Name: </strong></h5></label><br>{{user.firstName}}<br><br>
+
+                                {% if user.lastName.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                      {{ user.lastName.errors }}
+                                    </div>
+                                {% endif %}
+                                <label><h5><strong>Last Name: </strong></h5></label></label><br>{{user.lastName}}<br><br>
+                                {% if user.gender.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                      {{ user.gender.errors }}
+                                    </div>
+                                {% endif %}
+                                <label><h5><strong>Gender: </strong></h5></label></label><br>{{user.gender}}<br><br>
+                            <br><br>
+
+
+                            </div>
+                            <div class="item">
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" style="width: 66%"></div>
+                                </div>
+                                <br>
+                                {% if user.username.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                        {{ user.username.errors }}
+                                    </div>
+                                {% endif %}
+                                <label><h5><strong>Email: </strong></h5></label></label><br> {{user.username}}<br><br>
+
+                                {% if user.password1.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                        {{ user.password1.errors }}
+                                    </div>
+                                {% endif %}
+                                {% if user.password2.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                        {{ user.password2.errors }}
+                                    </div>
+                                {% endif %}
+                                <label><h5><strong>Password: </strong></h5></label></label>
+                                <p>Must be between 8-15 characters and contain at least one number and one capital letter.</p>
+                                <input type="password" name="password1" value="" size="50" placeholder="Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br>
+                                <input type="password" name="password2" value="" size="50" placeholder="Re-type Password" pattern="^(?=.*\d)(?=.*[A-Z]).{8,15}$"/><br><br>
+
+
+                                {% if user.hospital.errors %}
+                                    <br>
+                                    <div class="alert alert-dismissible alert-warning">
+                                      {{ user.hospital.errors }}
+                                    </div>
+                                {% endif %}
+                                <label><h5><strong>Hospital: </strong></h5></label></label>
+                                <br>
+                                {{user.hospital}}
+                                <br><br><br>
+                                <div id="sub">
+                                    <input type="submit" class="btn btn-primary" value="Submit" />
+                                    <button  type="button" class="btn btn-primary" onclick="window.location.href='/'">Cancel</button>
+                                </div>
+
+                                </form>
+
+                            </div>
+                          </div>
+
+                          <!-- Left and right controls -->
+                            <div>
+                                <a href="#myCarousel" class="left btn btn-default" data-slide="prev" id="prev">Previous</a>
+
+                                <a href="#myCarousel" class="right btn btn-default" data-slide="next" id="next">Next</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+              </div>
+              <!--
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              -->
+            </div>
+
+          </div>
+        <div class="num"></div>
+
+        <!-- About Us Modal -->
+        <div id="AboutUs" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title" style="text-align: center">About Us</h1>
+              </div>
+              <div class="modal-body">
+                  <h5 align="justify">
+                    HealthNet is a website designed to help enable hospitals to manage employees and patients
+                    through an easy-to-use and intuitive interface. This product was developed by the software
+                    development group <b>2 B Determined Inc.</b> in fall of 2015.
+                  </h5>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Contact Us Modal -->
+        <div id="ContactUs" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title" style="text-align: center">Contact Us</h1>
+              </div>
+              <div class="modal-body">
+                  <h3 align="center">
+                     <u><strong>2 B Determined Contact Information</strong></u>
+                  </h3>
+                  <br>
+                  <h5 align="center">
+                      <b>Colin Fausnaught - Team Coordinator</b><br> cjf1613@rit.edu
+                      <br><br>
+                      <b>Daniel Dang - Test Coordinator</b><br> dxd2791@rit.edu
+                      <br><br>
+                      <b>Raasin Siddiq - Configuration/QA Coordinator</b><br> res9924@rit.edu
+                      <br><br>
+                      <b>Bill Tarr - Development Coordinator</b><br> wet1177@rit.edu
+                      <br><br>
+                      <b>Barry Wu - Requirements Coordinator</b><br> bxw8904@rit.edu
+                      <br>
+                  </h5>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+            <div id="footer" class="footer well well-lg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-inline">
+                            <li class="pull-left"><a href="/HealthNet/">Home</a></li>
+                            <li class="pull-left"><a data-toggle="modal" data-target="#AboutUs">About Us</a></li>
+                            <li class="pull-left"><a data-toggle="modal" data-target="#ContactUs">Contact Us</a></li>
+                            <li class="pull-right"> &copy; Copyright 2015 2BDetermined Inc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+                $('.carousel').carousel({
+                      wrap: false,
+                    interval: false
+                    }).on('slid.bs.carousel', function () {
+                        curSlide = $('.active');
+                      if(curSlide.is( '.item:first' )) {
+                          $('.left').hide();
+
+                      } else {
+                          $('.left').show();
+                          $('.right').show();
+
+                      }
+                       if (curSlide.is( '.item:last' )) {
+                          $('.right').hide();
+                          $('.left').show();
+
+                      }
+                       else if(curSlide.is('.item:first')){
+                           $('.left').hide();
+                           $('.right').show();
+                       }
+                       else {
+                          $('.right').show();
+                          $('.left').show();
+                      }
+                    });
+
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+
+    </body>
+</html>

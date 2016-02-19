@@ -1,0 +1,119 @@
+
+<body>
+    <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Profiles/dashboard">HealthNet</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav">
+                        <li><a href="/Profiles/dashboard">Dashboard<span class="sr-only">(current)</span></a></li>
+                        {% if isPatient or isDoctor or isNurse or isAdmin %}
+                        <li><a href="/Profiles/{{id}}/profile">My Profile<span class="sr-only">(current)</span></a></li>
+                        {% endif %}
+                        {% if isDoctor %}
+                        <li><a href="/Profiles/{{id}}/mypatients">My Patients<span class="sr-only">(current)</span></a></li>
+                        {% endif %}
+                        {% if isAdmin %}
+                        <li><a href="/Profiles">Profiles<span class="sr-only">(current)</span></a></li>
+                        {% endif %}
+                        {% if isDoctor or isNurse or isAdmin%}
+                        <li><a href="/Messages/">Messages</a></li>
+                        {% endif %}
+
+                        {% if isAdmin %}
+                        <li><a href="/Profiles/{{id}}/log">Logs</a></li>
+                        <li class=""><a href="/Profiles/statistics">Statistics</a></li>
+                        {% endif %}
+                    </ul>
+                        {% if isPatient or isDoctor or isNurse %}
+                        <li><a href="/Schedule">Schedule</a></li>
+                        {% endif %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle show-hover" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="glyphicon glyphicon-bell"></i><span class="label label-danger">{{notifyLength}}</span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+
+                                {% for n in notifications %}
+                                    {% if n.priority == 0 %}
+                                        {% if not n.read %}
+
+                                        <li>
+                                            <div class="alert alert-dismissible alert-info">
+                                                <form id="post0" method="post" action="/notifications/">
+
+                                                    {% csrf_token %}
+                                                    <input type="submit" class="close" value="x"/>
+                                                    <input type="text" name="id" value="{{n.theID}}" hidden/>
+
+                                                    <a href="{{n.url}}" class="alert-link" name="n"> {{n.message}}</a>
+                                                </form>
+
+                                            </div>
+                                        </li>
+                                        {% endif %}
+
+                                    {% endif %}
+
+                                    {% if n.priority == 1 %}
+                                        {% if not n.read %}
+
+                                        <li>
+                                            <div class="alert alert-dismissible alert-warning">
+                                                <form id="post1" method="post" action="/notifications/">
+
+                                                    {% csrf_token %}
+                                                    <input type="submit" class="close" value="x"/>
+                                                    <input type="text" name="id" value="{{n.theID}}" hidden/>
+
+                                                    <a href="{{n.url}}" class="alert-link" name="n"> {{n.message}}</a>
+                                                </form>
+
+                                            </div>
+                                        </li>
+                                        {% endif %}
+
+                                    {% endif %}
+
+                                    {% if n.priority == 2 %}
+                                        {% if not n.read %}
+
+                                        <li>
+                                            <div class="alert alert-dismissible alert-danger">
+                                                <form id="post2" method="post" action="/notifications/">
+
+                                                    {% csrf_token %}
+                                                    <input type="submit" class="close" value="x"/>
+                                                    <input type="text" name="id" value="{{n.theID}}" hidden/>
+
+                                                    <a href="{{n.url}}" class="alert-link" name="n"> {{n.message}}</a>
+                                                </form>
+
+                                            </div>
+                                        </li>
+                                        {% endif %}
+
+                                    {% endif %}
+
+                                {% endfor %}
+
+
+                                <li class="divider"></li>
+                                <li><a href="#">View all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</body>

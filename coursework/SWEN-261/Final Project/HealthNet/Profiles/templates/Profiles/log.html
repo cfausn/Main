@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+
+    <meta charset="UTF-8">
+    <title>Log</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+
+
+
+
+</head>
+<body>
+    {% include "HealthNet/navbar.html" %}
+
+
+    <br>
+
+
+        <div class="jumbotron">
+
+        <form id="filter" method="post" action="/Profiles/{{id}}/log" >
+           {% csrf_token %}
+           <input type="date" name="startDate" value="{{date}}" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <input type="submit" class="btn" value="Filter"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <input type="date" name="endDate" value="{{dateE}}"/>
+        </form>
+        <h1>Log</h1>
+
+        <ol reversed>
+            {% for log in context %}
+                 <li>{{ log.date }} | {{ log.message }}</li>
+            {% endfor %}
+        </ol>
+
+
+        <button class="btn btn-primary" onclick="window.location.href = '/Profiles/dashboard'">Back to Dashboard</button><br><br>
+
+    </div>
+    {% include "HealthNet/footer.html" %}
+
+</body>
+</html>

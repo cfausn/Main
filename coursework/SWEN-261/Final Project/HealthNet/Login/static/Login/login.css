@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+
+
+#login_form {
+    text-align: center;
+}
+
+.badge {
+    background-color: white;
+}
+
+.show-hover > ul.dropdown-menu {
+    display: block;
+}
+.navbar {
+  border-radius: 0 !important;
+}
+
+.glyphicon-bell {
+
+    font-size:1.5rem;
+}

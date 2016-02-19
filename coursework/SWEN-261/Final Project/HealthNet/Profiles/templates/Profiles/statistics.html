@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+
+    <meta charset="UTF-8">
+    <title>HealthNet Statistics</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+
+</head>
+<body>
+    {% include "HealthNet/navbar.html" %}
+    <div class="jumbotron">
+
+        <h1>Statistics</h1>
+
+        <p>HealthNet has a total of <b>{{numUsers}} users</b>, of them:</p>
+    <ul>
+        {% if numPatients == 1 %} <li><p> {{numPatients}} is a patient, </p></li> {% endif %}
+        {% if numPatients != 1 %} <li><p> {{numPatients}} are patients, </p></li> {% endif %}
+        {% if numDoctors == 1 %}  <li><p> {{numDoctors}} is a doctor, </p></li> {% endif %}
+        {% if numDoctors != 1 %}  <li><p> {{numDoctors}} are doctors, </p></li> {% endif %}
+        {% if numNurses == 1 %}   <li><p> {{numNurses}} is a nurse, </p></li> {% endif %}
+        {% if numNurses != 1 %}   <li><p> {{numNurses}} are nurses, </p></li> {% endif %}
+        {% if numAdmins == 1 %}   <li><p> and {{numAdmins}} is an admin.</p></li> {% endif %}
+        {% if numAdmins != 1 %}   <li><p> and {{numAdmins}} are admins. </p></li> {% endif %}
+    </ul>
+        <p>There are {{numinactive}} inactive users.</p>
+        <br>
+        <p>HealthNet contains {{numHospitals}} hospital(s):</p>
+    <ul>
+        {% for hospital in hospitals %}
+            <h5><b><li> {{hospital}} </b></h5>
+        {% endfor %}
+    </ul>
+        <br>
+        <p>The most popular doctor is <b>{{popDoc}}</b> with {{popDocNum}} patient(s).</p>
+        <br>
+        <p>The most popular hospital is <b>{{popHospital}}</b> with {{popHospitalNum}} user(s).</p>
+        <br>
+        <p>There have been <b>{{numAppointments}} appointment(s)</b> between patients and doctors so far.</p>
+        <br>
+        <p>The most popular surgery is <b>{{popSurgery}}</b> having been performed {{popSurgeryNum}} time(s).</p>
+        <br>
+        <p>The most popular prescription is <b>{{popPresc}}</b> having been prescribed {{popPrescNum}} time(s).</p>
+        <br>
+        <p>The most popular test is <b>{{popTest}}</b> having been performed {{popTestNum}} time(s).</p>
+
+    <button class="btn btn-primary btn-lg" onclick="window.location.href = '/Profiles/dashboard'">Back to Dashboard</button>
+    <br><br><br>
+    </div>
+        {% include "HealthNet/footer.html" %}
+
+</body>
+</html>

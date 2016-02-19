@@ -1,0 +1,38 @@
+<html>
+    <head>
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+
+        <title>Profiles List</title>
+
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+
+
+    </head>
+
+    <body>
+    {% include "HealthNet/navbar.html" %}
+
+        <div class="jumbotron">
+            <h2>My Patients</h2>
+            <p>(click username to see profile):</p>
+            <div class="well" style="overflow-y:scroll; height:400px; width: 600px;">
+                <ul>
+                    {% for user in userList %}
+                    <li>
+                        <a href = "../{{user.id}}/profile"> {{user.username}} </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <br><br>
+            </div>
+        </div>
+    {% include "HealthNet/footer.html" %}
+
+    </body>
+</html>

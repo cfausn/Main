@@ -1,0 +1,114 @@
+<html xmlns:color="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{{firstName}} {{lastName}}'s Dashboard</title>
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'Profiles\dashboard.css' %}" />
+
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+
+    </head>
+
+    <body>
+    {% include "HealthNet/navbar.html" %}
+    <div class="container">
+            <div class="jumbotron">
+                <div class="container-fluid">
+
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="list-group">
+                            {% if isPatient or isDoctor%}
+                                <a href="/Schedule/" class="list-group-item">
+                                  <h4 class="list-group-item-heading">My Schedule</h4>
+                                <p class="list-group-item-heading"> </p>
+                                </a>
+                              {% endif %}
+                            {% if isNurse %}
+                                <a href="/Profiles/{{id}}/profile" class="list-group-item">
+                                  <h4 class="list-group-item-heading">My Profile</h4>
+                                  <p class="list-group-item-heading"> </p>
+                                </a>
+                              {% endif %}
+
+                              {% if isAdmin %}
+                                <a href="/Profiles/{{id}}/log" class="list-group-item">
+                                  <h4 class="list-group-item-heading">Logs</h4>
+                                    <p class="list-group-item-heading"> </p>
+                                </a>
+                              {% endif %}
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="list-group">
+                              {% if isPatient %}
+                                <a href="/Profiles/{{id}}/profile" class="list-group-item">
+                                  <h4 class="list-group-item-heading">My Profile</h4>
+                                  <p class="list-group-item-heading"> </p>
+                                </a>
+                              {% endif %}
+                              {% if isDoctor or isNurse%}
+                                <a href="/Messages/" class="list-group-item">
+                                  <h4 class="list-group-item-heading">Messages</h4>
+                                    <p class="list-group-item-heading"> </p>
+                                </a>
+                              {% endif %}
+                              {% if isAdmin %}
+                                <a href="/Profiles/statistics" class="list-group-item">
+                                  <h4 class="list-group-item-heading">Statistics</h4>
+                                  <p class="list-group-item-heading"></p>
+                                </a>
+                              {% endif %}
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="list-group">
+                              {% if isDoctor %}
+                                <a href="/Profiles/{{id}}/profile" class="list-group-item">
+                                  <h4 class="list-group-item-heading">My Profile</h4>
+                                  <p class="list-group-item-heading"> </p>
+                                </a>
+                              {% endif %}
+                              {% if isAdmin %}
+                                <a href="/Profiles/" class="list-group-item">
+                                  <h4 class="list-group-item-heading">Manage Profiles</h4>
+                                  <p class="list-group-item-heading"></p>
+                                </a>
+                              {% endif %}
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="list-group">
+                              {% if isDoctor%}
+                                <a href="/Profiles/{{id}}/mypatients" class="list-group-item">
+                                  <h4 class="list-group-item-heading">My Patients</h4>
+                                  <p class="list-group-item-heading"></p>
+                                </a>
+                              {% endif %}
+                              {% if isNurse%}
+                                <a href="/Profiles/nurseIndex" class="list-group-item">
+                                  <h4 class="list-group-item-heading">Doctors and Patients in My Hospital</h4>
+                                  <p class="list-group-item-heading"></p>
+                                </a>
+                              {% endif %}
+                              {% if isAdmin %}
+                                <a href="/Profiles/{{id}}/profile" class="list-group-item">
+                                  <h4 class="list-group-item-heading">My Profile</h4>
+                                  <p class="list-group-item-heading"></p>
+                                </a>
+                              {% endif %}
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% include "HealthNet/footer.html" %}
+    </body>
+</html>

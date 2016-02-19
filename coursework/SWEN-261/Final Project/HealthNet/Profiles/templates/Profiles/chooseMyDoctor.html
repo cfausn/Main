@@ -1,0 +1,47 @@
+<html>
+    <head>
+        {% load staticfiles %}
+
+            <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+
+            <title>Choose Your Doctor</title>
+
+            <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+            <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <link rel="icon" type="image/png" href="http://i.imgur.com/XD17hkZ.png"/>
+    </head>
+
+    <body>
+        {% include "HealthNet/navbar.html" %}
+
+        <div class="jumbotron">
+            <h2>Doctor selection for {{ currentUser.username }}</h2>
+
+            <div class="well" style="overflow-y:scroll; height:400px; width: 600px;">
+                <ul>
+                    {% for doctor in doctorList %}
+                    <li>
+                        <p>{{ doctor.first_name }} {{ doctor.last_name }}</p>
+                        <form method="POST">{% csrf_token %}
+                             <input hidden type="text" name="userChoose" value="{{doctor.username}}">
+                             <button class="btn btn-primary" type="submit" name="choose" onclick="
+                                     if (confirm('Are you sure you want to set this doctor as your primary care physician?')){
+                                        submit;
+                                     } else {
+                                        return false;
+                                     }
+                                     "
+                                      > Choose This Doctor</button>
+                        </form>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        {% include "HealthNet/footer.html" %}
+    </body>
+</html>

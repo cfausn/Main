@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title></title>
+
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+        <link rel="icon"
+              type="image/png"
+              href="http://i.imgur.com/XD17hkZ.png"/>
+
+        <!-- Icons from Google Web Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- "Paper" theme from bootswatch.com (opensource) -->
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Profiles/dashboard">HealthNet</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav">
+                        <li><a href="/Profiles/dashboard">Dashboard<span class="sr-only">(current)</span></a></li>
+                        {% if isPatient or isDoctor or isNurse or isAdmin %}
+                        <li><a href="/Profiles/{{id}}/profile">My Profile<span class="sr-only">(current)</span></a></li>
+                        {% endif %}
+                        {% if isDoctor %}
+                        <li class="active"><a href="/Profiles/{{id}}/mypatients">My Patients<span class="sr-only">(current)</span></a></li>
+                        {% endif %}
+                        {% if isAdmin %}
+                        <li><a href="/Profiles">Profiles<span class="sr-only">(current)</span></a></li>
+                        {% endif %}
+                        {% if isDoctor or isNurse or isAdmin%}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle show-hover" data-toggle="dropdown" role="button" aria-expanded="false">Messages <span class="badge">5</span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Message 1</a></li>
+                                <li><a href="#">Message 2</a></li>
+                                <li><a href="#">Message 3</a></li>
+                                <li><a href="#">Message 4</a></li>
+                                <li><a href="#">Message 5</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/Messages/">Check all messages</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% if isPatient %}
+                        <li class="dropdown">
+                            <a href="/Profiles/{{id}}/profile" class="dropdown-toggle show-hover" data-toggle="dropdown" role="button" aria-expanded="false">Medical Information </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Overview</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Prescriptions</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Test Results</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% if isAdmin %}
+                        <li><a href="/Profiles/{{id}}/log">Logs</a></li>
+                        <li><a href="/Profiles/statistics">Statistics</a></li>
+                        {% endif %}
+                    </ul>
+                        {% if isPatient or isDoctor or isNurse %}
+                        <li><a href="/Schedule">Schedule</a></li>
+                        {% endif %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle show-hover" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="glyphicon glyphicon-bell"></i><span class="label label-danger">{{notifyLength}}</span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+
+                                {% for n in notifications %}
+                                    {% if n.priority == 0 %}
+                                        <li>
+                                            <div class="alert alert-dismissible alert-info">
+                                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                                <a href="{{n.url}}" class="alert-link"> {{n.message}}</a>
+                                            </div>
+                                        </li>
+
+                                    {% endif %}
+
+                                    {% if n.priority == 1 %}
+                                        <li>
+                                            <div class="alert alert-dismissible alert-warning">
+                                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                                <a href="{{n.url}}" class="alert-link"> {{n.message}}</a>
+                                            </div>
+                                        </li>
+
+                                    {% endif %}
+
+                                    {% if n.priority == 2 %}
+                                        <li>
+                                            <div class="alert alert-dismissible alert-danger">
+                                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                                <a href="{{n.url}}" class="alert-link" > {{n.message}}</a>
+                                            </div>
+                                        </li>
+
+                                    {% endif %}
+
+                                {% endfor %}
+
+
+                                <li class="divider"></li>
+                                <li><a href="#">View all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron">
+            {% block content %}
+            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+                {{form.csv}}
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <input type="button" class="btn btn-primary" value="Cancel" onclick="window.location.href='javascript:history.back()'">
+            </form>
+            {% endblock %}
+        </div>
+]
+
+        <!-- About Us Modal -->
+        <div id="AboutUs" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title" style="text-align: center">About Us</h1>
+              </div>
+              <div class="modal-body">
+                        <h5> Insert Description Here.</h5>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Contact Us Modal -->
+        <div id="ContactUs" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title" style="text-align: center">Contact Us</h1>
+              </div>
+              <div class="modal-body">
+                        <h5> Insert Description Here.</h5>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+            <div id="footer" class="footer well well-lg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-inline">
+                            <li class="pull-left"><a href="/Profiles/dashboard">Home</a></li>
+                            <li class="pull-left"><a data-toggle="modal" data-target="#AboutUs">About Us</a></li>
+                            <li class="pull-left"><a data-toggle="modal" data-target="#ContactUs">Contact Us</a></li>
+                            <li class="pull-right"> &copy; Copyright 2015 2BDetermined Inc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

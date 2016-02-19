@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text\css" href="{% static 'Schedule\schedule.css' %}" />
+
+<link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+<link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+<head>
+
+</head>
+<p>
+<a href="{{prevDayUrl}}">Previous Day</a>
+<a href="{{nextDayUrl}}">Next Day</a>
+</p>
+<p>
+    <a href="{{prevWeekUrl}}">Previous Week</a>
+    <a href="{{nextWeekUrl}}">Next Week</a>
+</p>
+
+<p>
+    <a href="{{prevYearUrl}}">Previous Year</a>
+    <a href="{{nextYearUrl}}">Next Year</a>
+</p>
+
+<table style="width:100%">
+  <caption>
+  Schedule for the date of {{month}}-{{day}}-{{year}} for user {{username}}
+  </caption>
+  <tr>
+    <th>Appointment</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+	<th>Comments</th>
+  </tr>
+  {% for appointment in schedule %}
+    <tr>
+        <td align="center"><a href="/Schedule/{{appointment.pk}}">{{appointment}}</a></td>
+        <td align="center">{{appointment.startTime|time:"h:i A"}}</td>
+        <td align="center">{{appointment.endTime|time:"h:i A"}}</td>
+        <td align="center">{{appointment.comments}}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<p>
+    <a href="/Schedule/create/{{year}}/{{month}}/{{day}}/{{user_id}}">Create an appointment with this user for this day</a>
+</p>
+
+<p>
+    <a href="/Profiles">Profiles</a>
+</p>

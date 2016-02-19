@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>List of Patients in {{hospital}} Under {{docName}}</title>
+
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text\css" href="{% static 'Profiles\profiles.css' %}" />
+        <link rel="icon"
+              type="image/png"
+              href="http://i.imgur.com/XD17hkZ.png"/>
+
+        <!-- Icons from Google Web Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- "Paper" theme from bootswatch.com (opensource) -->
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+    {% include "HealthNet/navbar.html" %}
+
+        <div class="jumbotron">
+            <h2>List of Patients in {{hospital}} Under {{docName}}</h2>
+            <div class="well" style="overflow-y:scroll; height:400px; width: 600px;">
+                <ul>
+                    {% for patient in userList %}
+                    <li>
+                        <a href="/Profiles/{{patient.theUser.pk}}/profile">{{patient.theUser.first_name}} {{patient.theUser.last_name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <button class="btn btn-default" onclick="window.location.href='/Profiles'">Manage Active Accounts</button>
+            <br>
+        </div>
+
+        {% include "HealthNet/footer.html" %}
+    </body>
+</html>

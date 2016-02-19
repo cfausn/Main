@@ -1,0 +1,102 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+h1 {
+	font-size: 1.5em;
+	text-align: center;
+
+    padding: 50px 0;
+}
+
+#buttons {
+	text-align: center;
+
+}
+
+.jumbotron {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#desc {
+    text-align: left;
+}
+
+#pic {
+    text-align: right;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    background: dimgray;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+.footer .well {
+    font-size: 12px;
+    font-color: lightgrey;
+    background-color: dimgrey;
+    clear: both;
+    border: 5px solid dimgrey;
+    padding: 15px;
+    color: lightgrey;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.footer ul { display: inline; }
+.footer a       { color: lightgrey; text-decoration: none; }
+.footer a:hover { color: white;     text-decoration: none; }
+
+.tip {
+    width:36px;
+    height:36px;
+    line-height:36px;
+
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:black;
+    text-align:center;
+    text-decoration:none;
+    background: #fff;
+
+    box-shadow: 0 0 3px gray;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.tip:hover {
+    background-color: lightgoldenrodyellow;
+}
+
+.navbar {
+  border-radius: 0 !important;
+}
