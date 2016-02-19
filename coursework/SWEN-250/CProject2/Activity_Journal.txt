@@ -1,0 +1,109 @@
+SWEN-250 Project Activity Journal
+Home Security "C" Project - Part 2
+
+Name: Colin Fausnaught
+
+===========  Makefile ==========================================
+Start
+Estimated Time	0 HH 02 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+Simply use the Makefile that I used for part 1. Makefiles aren't
+particularly challenging for me. Shouldn't be too bad!
+
+Complete
+Actual Time	0 HH 02 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+No problems! It was as easy as I thought it would be, hs and then
+the gcc compiler information. I also added a "clean" command to
+clean up the compiled program without using rm -f each time.
+
+===========  Level 1  ==========================================
+Start
+Estimated Time	7 HH 30 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+There are a lot of parts for this level that I can take almost 
+directly from the CProject1. I will probably be doing that for
+a large majority of this level. Overall I don't forsee many
+problems with this level, however I will have to completely 
+remake my logic since I used a strange way to do my first part.
+
+
+Complete
+Actual Time	12 HH 52 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+This took me a good extra 5 hours to do then I expected. I decided
+to use a good number of utility functions to accomplish my task.
+I also used a good amount of foresight in this level to make the 
+levels ahead of this one easier. I had a lot of difficulty with
+memory locations. I ended up fixing my problems by freeing up 
+memory and being careful with my malloc functions. Ratio : 1.715
+
+===========  Level 2  ==========================================
+Start
+Estimated Time	7 HH 30 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+I vastly underestimate the ammount of time it would take me to 
+accomplish task 1, so I will be overestimating the amount of time
+that this part will take me. I have a lot of the logic down with
+how to accomplish this part already, but I have learned from the
+last task that things don't always go the way you think they will!
+I plan on using a lot of my logic that I coded into the first part
+for this level, but I'm not sure if a lot of it will work.
+
+Complete
+Actual Time	4 HH 15 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+I had a major pitfall with certain parts of my first level. For 
+instance I learned that my printing loop was dramatically wrong, 
+so I had to completely overhall that and add some conditionals
+to include seperate rooms. Now that I have taken care of all of
+my logic issues I shouldn't have too many issues with Level 3.
+Ratio : 0.56
+
+===========  Level 3  ==========================================
+Start
+Estimated Time	4 HH 15 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+This part shouldn't be too much more of a hassle, as all I have to 
+do is implement another function. I should be carefull about memory
+though and research when I need to free a value in order to not
+make my whole program get messed up. I am going to try and get this
+one done a little bit sooner then the other parts. Hopefully I will
+be able to!
+
+Complete
+Actual Time	5 HH 34 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+This part took me longer then expected, but not as dramatically long
+as the first part did. A lot of the issues I encountered were in
+regards to how to free a value, just as I thought there would be.
+After a lot of research and some help from other people, I was able
+to grasp how and what values to free. Now I'm going to document my
+code and work on removing some legacy variables! Ratio: 1.31
+
+===========  PROJECT PART 1 SUMMARY REFLECTION  =======================
+Final Ratio: 1.195
+
+This project was a mixed bag for me. A lot of it seemed like it should
+have been easily transferable from the last Project. However, while 
+a lot of the logic was sound I had issue transfering everything over to
+the data structures. I didn't use said structures in the last part. Most
+of the time was taken up by transfering all the information that I had
+previously just printed from strings into said data structures.
+
+A lot of issues came up with memory however in this part as well. Eventually
+I had to research what values needed to be "freed" from the list. I 
+used the internet to research what part of my data structures actually
+needed freeing, and after some research I figured it out. I was very
+pleased with the way my data structures turned out and the way my
+program ran.
+
+===============================================================

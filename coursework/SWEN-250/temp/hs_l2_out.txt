@@ -1,0 +1,10 @@
+Intruder alert @ 12:36:06: room 0 / sensor 7.
+*****
+Home Security System: Room 0 at 23:59:59
+Triggered by sensor 9
+5 total room events
+Sensor 2 @ 17:41:55 temperature reading 72 degrees
+Sensor 7 @ 12:36:06 intruder alert
+Sensor 4 @ 08:20:01 carbon monoxide reading 3000 PPB
+Sensor 1 @ 04:10:42 temperature reading 110 degrees
+Sensor 1 @ 00:00:00 temperature reading 50 degrees

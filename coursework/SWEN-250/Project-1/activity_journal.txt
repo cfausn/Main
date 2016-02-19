@@ -1,0 +1,193 @@
+SWEN-250 Activity Journal
+Ruby – Grades CSV
+
+Name: Colin Fausnaught (cjf1613)
+
+RELEASE 1 - grades_util.rb & test_grades.rb
+================================================================
+Implement & Test get_CSV_line() - Start
+Estimated Time	0 HH 30 MM
+Plan for this level: Use the "chomp()" method and the "split()"
+method to create an array to be returned by get_CSV_line(). Create
+tests that test empty values and valid values, try to trick the 
+program into failing.
+
+Complete
+Actual Time	1 HH 08 MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+I learned a lot about raising errors from this part of the project.
+Particularly I had trouble understanding what types of errors to call.
+I ended up calling ArgumentErrors for invalid inputs.
+
+================================================================
+
+================================================================
+Implement & Test numeric_to_letter() - Start
+Estimated Time	1 HH 00 MM
+Plan for this level: I plan on using if statements in the actual
+coding aspect of this part. Should be pretty straight-forward. 
+When it comes to testing, I will be testing to make sure things like
+strings or other values are passed to break the program.
+
+Complete
+Actual Time	0 HH 37 MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+Because of the immense progress I made with get_CSV_line(), I was 
+able to complete this part very quickly. I am very comfertable
+with the amount of tests I created and with the way my code is 
+structured up to this point. (Inevitably I've been trying to 
+beat my Estimated Time at this point! I'm too competitive)
+
+================================================================
+
+================================================================
+Implement & Test sum_weights() - Start
+Estimated Time	1 HH 30 MM
+Plan for this level: I am not necessarily sure what the in-code 
+documentation means for me to do. I assume I need to sum values
+in an array and return them as an integer. I will have to check 
+to make sure these values don't contain invalid characters and
+make sure that my tests account for all possible 'bad' input.
+At this point I looked over the project guidelines on mycourses
+and realized I had previously tested for things that I didn't 
+have to. Oops!
+
+Complete
+Actual Time	0 HH 42 MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+I realized at this point that I was overcomplicating the program.
+A lot of the steps I took from my first journal were unncessary, 
+espcially the ArugmentErrors I was calling. I removed them from
+the program and from the test program. I finished this part much
+quicker then I thought I would!
+
+================================================================
+
+================================================================
+Implement & Test compute_grade() - Start
+Estimated Time	1 HH 45 MM
+Plan for this level: I am unsure as to how I am going to compute
+the grade here. I will probably have to look at the example given
+to fully undestand what the program is looking for from the 
+weight and field variables, even though the documentation gives
+a basic amount of information on this already. For testing I 
+will probably throw in some values that will mess with the expected
+result without changing the way the CSV values are supposed to be
+inputed.
+
+Complete
+Actual Time	2 HH 03 MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+This part took me a long time because I didn't understand how the hashed
+values in LETTER_TO_NUMERIC worked. Once I figured that out it was
+pretty simple to fix the rest of my method. I also learned that 
+when you convert a string that ISN'T a numeric to a float, you
+get 0.0. For instance "Jim".to_f == 0.0. Because of that I didn't
+have to do much error checking. Before that I had a lot of elsif
+statements to make sure the value was numeric, so I'm glad there
+was an easy way out of that.
+
+================================================================
+
+RELEASE 2 - grades.rb
+================================================================
+Release 2 -Level 1 – Start
+Estimated Time	0 HH 30 MM
+Plan for this level: I plan on using "pretty print" in order to 
+print out the first two lines in the given way. Shouldn't be
+too difficult!
+
+Level 1 – Complete
+Actual Time	0 HH 42 MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+I ended up just using "puts" instead of pretty print for now. 
+I didn't have that many issues with this level at all. Took me a
+bit longer to finish than I expected though. 
+
+================================================================
+
+================================================================
+Release 2 -Level 2 – Start
+Estimated Time	0 HH 30 MM
+Plan for this level: For this part I should be able to reuse a lot
+of the grades_util functions. This part shouldn't be very hard.
+I will use an if statement to decide if the sum is larger or less
+than 100.
+
+Level 2 – Complete
+Actual Time	0 HH 24 MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+This was just as simple as I expected it to be. All i had to do was
+sum_weights and that got me my answer. Grades_util will be able 
+to handle the conversion to the "A+" format.
+
+================================================================
+
+================================================================
+Release 2 -Level 3 – Start
+Estimated Time	0 HH 45 MM
+Plan for this level:
+Use a loop to iterate through the headings and the lines in order
+to print the correctly. Then use te lines to calculate the final
+grade and find the numeric letter.
+
+Level 3 – Complete
+Actual Time	0 HH 36 MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+It was pretty simple to do this part of the program. I used indexing
+to print out the data. 
+================================================================
+
+================================================================
+Release 2 -Level 4 – Start
+Estimated Time	0 HH 10 MM
+Plan for this level:
+Seems pretty simple to do this part of the program. I should be able
+to do it with two lines of code! 
+
+Level 4 – Complete
+Actual Time	0 HH 12 MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+This part was as simple as I thought it would be. I used grades_util
+to take care of this part of the program. I may have to store the values
+later to do the other levels of the project.
+================================================================
+
+================================================================
+Release 2 -Level 5 – Start
+Estimated Time	00 HH 00 MM
+Plan for this level:
+I don't have to change my program for this level. It works as-is
+because of the way I coded my compute_grade function.
+
+Level 5 – Complete
+Actual Time	00 HH 00 MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+See above. I didn't have to code at all for this part of the program.
+================================================================
+
+================================================================
+Release 2 -Level 6 – Start
+Estimated Time	00 HH 05 MM
+Plan for this level:
+I plan on using the pre-made lettercount hash to update the hash
+table and then pass it to print_summary, which will print out
+the values like the project requests.
+
+Level 6 – Complete
+Actual Time	00 HH 08 MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+I did exactly what I planned to do and everything worked out great!
+Now I'm going to add some comments to my code before doing the
+final commit.
+================================================================
+
+OVERALL SUMMARY
+================================================================
+Estimated Total Time	6 HH 45 MM
+Actual Total Time	6 HH 32 MM
+Project reflection: I actually took longer on the beginning of 
+the project then the second part, which surprised me. I am actually
+really surprised at how quickly the secound part was finished. Overall
+I really enjoyed this project and I felt like I learned a lot
+about testing and about Ruby in general! 

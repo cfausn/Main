@@ -1,0 +1,24 @@
+SWEN-250 Activity Reflection
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	1 HH 15 MM
+Plan:
+(Order of implementation, testing approach, etc.)
+I plan on using the same tactics I used with ruby for the most 
+part when it comes to reading a CSV. This shouldn't be too difficult,
+I just need to find a way to simulate the "split()" method in C.
+
+Complete
+Actual Time	3 HH 15 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+This project took me much longer to complete due to an error I was 
+having in the while loop of get_line(). for som reason I wasn't
+terminating the loop correctly using the returned value from get_field(),
+and it took me hours of scouring the internet to figure it out. But
+I know more about c now! So that's good I guess.
+
+================================================================

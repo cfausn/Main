@@ -1,0 +1,26 @@
+SWEN-250 Activity Reflection
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	2 HH 15 MM
+Plan:
+(Order of implementation, testing approach, etc.)
+I don't forsee many issues with this program. All I need to do
+is understand some of the syntax of custom stucts and I should
+be fine (I understand -> is used to access values). I will use
+a counter for the functions that require indexing and test all
+functions for NULL values.
+
+Complete
+Actual Time	2 HH 32MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+I had little trouble with this program. Perhaps the most interesting
+thing I did was use recursion for the last function. This was
+my first use of recursion in C so that was sort of interesting. 
+I could have used my custom free() function to free memory on these
+but I decided to just use free() as it is simplier. 
+
+================================================================

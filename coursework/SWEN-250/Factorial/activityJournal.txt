@@ -1,0 +1,25 @@
+WEN-250 Activity Reflection
+Ruby - Factorial with Unit Testing
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	2 HH 30 MM
+Plan: Implement testing by going through the steps listed on the Factorial 
+      activity. I will be testing all base cases that the program is expected
+      to accomplish, and combine them in order to "break" the program 
+      wherever I can.
+(Order of implementation, testing approach, etc.)
+
+Complete
+Actual Time	1 HH  5 MM
+Observations: I had a few issues with the assert_raise object, but for the most
+	      part this was a decently easy program. I understood things and I 
+	      am very confident in my ability to write test programs now. Startin
+	      to feel like a software developer!
+ 
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================

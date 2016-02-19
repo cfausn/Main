@@ -1,0 +1,50 @@
+Intruder alert @ 01:01:54: room 2 / sensor 5.
+Temperature alert @ 02:00:00: room 1 / sensor 2 / 49 degrees.
+Temperature alert @ 10:10:42: room 2 / sensor 9 / 111 degrees.
+Carbon monoxide alert @ 16:20:01: room 3 / sensor 4 / 3001 PPB.
+Intruder alert @ 17:36:06: room 1 / sensor 3.
+*****
+Home Security System: Room 4 at 23:50:59
+Triggered by sensor 9
+5 total room events
+Sensor 5 @ 22:46:46 temperature reading 75 degrees
+Sensor 6 @ 18:31:25 temperature reading 85 degrees
+Sensor 5 @ 15:46:06 temperature reading 91 degrees
+Sensor 3 @ 13:10:42 temperature reading 88 degrees
+Sensor 2 @ 10:00:23 temperature reading 95 degrees
+*****
+Home Security System: Room 3 at 23:52:56
+Triggered by sensor 9
+5 total room events
+Sensor 1 @ 21:10:42 temperature reading 68 degrees
+Sensor 4 @ 16:20:01 carbon monoxide reading 3001 PPB
+Sensor 7 @ 12:36:06 carbon monoxide reading 2988 PPB
+Sensor 4 @ 08:20:01 temperature reading 72 degrees
+Sensor 1 @ 02:22:23 temperature reading 58 degrees
+*****
+Home Security System: Room 2 at 23:53:57
+Triggered by sensor 9
+5 total room events
+Sensor 7 @ 22:20:01 carbon monoxide reading 1156 PPB
+Sensor 9 @ 19:41:55 temperature reading 72 degrees
+Sensor 9 @ 10:10:42 temperature reading 111 degrees
+Sensor 9 @ 03:04:55 temperature reading 78 degrees
+Sensor 5 @ 01:01:54 intruder alert
+*****
+Home Security System: Room 1 at 23:55:58
+Triggered by sensor 9
+5 total room events
+Sensor 2 @ 20:41:55 temperature reading 72 degrees
+Sensor 3 @ 17:36:06 intruder alert
+Sensor 6 @ 09:20:01 carbon monoxide reading 2876 PPB
+Sensor 3 @ 06:10:42 temperature reading 89 degrees
+Sensor 2 @ 02:00:00 temperature reading 49 degrees
+*****
+Home Security System: Room 0 at 23:59:59
+Triggered by sensor 9
+5 total room events
+Sensor 2 @ 17:41:55 temperature reading 72 degrees
+Sensor 7 @ 12:36:06 carbon monoxide reading 2898 PPB
+Sensor 4 @ 08:20:01 carbon monoxide reading 3000 PPB
+Sensor 1 @ 04:10:42 temperature reading 110 degrees
+Sensor 1 @ 00:00:00 temperature reading 50 degrees

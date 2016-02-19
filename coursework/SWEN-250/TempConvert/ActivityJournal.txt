@@ -1,0 +1,24 @@
+SWEN-250 Activity Reflection
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	01 HH 45 MM
+Plan:
+(Order of implementation, testing approach, etc.)
+I plan on working through part 1 using the activity outline. It 
+shouldn't be too difficult, but since I am unfamiliar with C I
+will probably have to take more time to complete this task.
+Part 2 will be simple because it is basically the same as the
+first program, but in floating point.
+
+Complete
+Actual Time	00 HH 45 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+Took me much shorter than I originally thought. I had a few issues
+with formatting my output, but besides that I had no issues. Fun
+little project!
+
+================================================================

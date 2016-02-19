@@ -1,0 +1,27 @@
+
+SWEN-250 Activity Reflection
+Ruby - Phonetic
+ 
+Name: Colin Fausnaught
+ 
+================================================================
+Start
+Estimated Time 1 HH 10 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+This program seems simple enought; I will be using the given dictionary
+to complete this program and return the string equalivalents. Testing
+will comply to the given parameters in the activity write-up.
+ 
+Complete
+Actual Time  1  HH 30 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+ Took me a bit longer than expected due to syntax confusion. I had 
+a few issues with the "upcase" function and deciding which values
+passed to the two functions should be arrays or strings. In the 
+end I figured it out though and I am happy with my test cases.
+ 
+================================================================
+ 
+ 

@@ -1,0 +1,30 @@
+SWEN-250 Activity Reflection
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	2 HH 00 MM
+Plan:
+(Order of implementation, testing approach, etc.)
+I decided to get a head start on my programs by starting this one
+a week early, so it may take me longer than the previous tasks. 
+I will have to find a way to read each line and return said line
+with the readline() function. I will have to search the internet
+and other resources to accomplish this task. Compiler Errors: 3
+
+I will now start Part 2, which involves storing a copy of the longest
+line using the copy() function. Compiler Errors: 7
+
+Complete
+Actual Time	1 HH  22 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+I learned a lot about variables with this program. I'm sure a lot
+of the work I did in copy() will be utilized later with pointers,
+because a lot of my compiler errors involved pointer issues
+(particularly trying to cast to wrong types when I would try
+to pass an int to an array value). I had a total of 10 compiler
+errors throughout this program.
+
+================================================================

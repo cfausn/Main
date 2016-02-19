@@ -1,0 +1,117 @@
+21c21
+< name|team
+---
+> name|name
+30c30
+< Mookie Betts|50|Left Fielder
+---
+> Allen Craig|5|Right Fielder
+33d32
+< Allen Craig|5|Right Fielder
+34a34
+> Mookie Betts|50|Left Fielder
+56a57,58
+> Everth Cabrera|1|28
+> Manny Machado|13|22
+59,60d60
+< Manny Machado|13|22
+< Everth Cabrera|1|28
+64c64,65
+< name|number|name
+---
+> name|number|team
+> Allen Craig|5|Red Sox
+66,67d66
+< Mookie Betts|50|Red Sox
+< Kevin Pillar|11|Blue Jays
+69,70d67
+< Dalton Pompey|45|Blue Jays
+< Allen Craig|5|Red Sox
+71a69,70
+> Mookie Betts|50|Red Sox
+> Kevin Pillar|11|Blue Jays
+73a73
+> Dalton Pompey|45|Blue Jays
+80d79
+< Roman Rodriguez
+83c82
+< name|posnum|number|team
+---
+> name|position|number|team
+93,94c92,109
+< 'Placeholder for 10'
+< Placeholder for 10
+---
+> name|title
+> Dustin Pedroia|Second Baseman
+> Daniel Nava|Right Fielder
+> David Ortiz|Designated Hitter
+> Darren O'Day|Pitcher
+> David Lough|Left Fielder
+> Delmon Young|Right Fielder
+> Dellin Betances|Pitcher
+> David Carpenter|Pitcher
+> Didi Gregorius|Shortstop
+> Drew Hutchison|Pitcher
+> Daniel Norris|Pitcher
+> Devon Travis|Second Baseman
+> Danny Valencia|Third Baseman
+> Dalton Pompey|Center Fielder
+> Drew Smyly|Pitcher
+> David DeJesus|Left Fielder
+> Desmond Jennings|Center Fielder
+102,103c117,142
+< 'Placeholder for EC1'
+< Placeholder for EC1
+---
+> name|number
+> Asdrubal Cabrera|13
+> Bobby Wilson|46
+> Brad Boxberger|26
+> Brandon Gomes|47
+> Brandon Guyer|5
+> Chris Archer|22
+> David DeJesus|7
+> Desmond Jennings|8
+> Drew Smyly|33
+> Erasmo Ramirez|30
+> Ernesto Frieri|43
+> Evan Longoria|3
+> Jake Elmore|10
+> Jake Odorizzi|23
+> James Loney|21
+> Kevin Jepsen|40
+> Kevin Kiermaier|39
+> Logan Forsythe|11
+> Matt Andriese|35
+> Nathan Karns|51
+> Rene Rivera|44
+> Steve Geltz|54
+> Steven Souza  Jr.|20
+> Tim Beckham|1
+> Xavier Cedeno|31
+106c145,146
+< Placeholder for EC2
+---
+> 29
+> 
+109c149
+< Placeholder for EC3
+---
+> 27.95
+112c152,156
+< Placeholder for EC4
+---
+> 7|Blue Jays
+> 5|Orioles
+> 6|Rays
+> 5|Red Sox
+> 6|Yankees
+115c159,163
+< Placeholder for EC5
+---
+> 27.42|Blue Jays
+> 28.33|Orioles
+> 26.83|Rays
+> 29.83|Red Sox
+> 27.38|Yankees

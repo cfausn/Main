@@ -1,0 +1,24 @@
+SWEN-250 Activity Reflection
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	00 HH 15 MM
+Plan:
+(Order of implementation, testing approach, etc.)
+This activity seems very straight-forward. Since I have already
+completed this task in Ruby, I shouldn't have a huge issue with
+translating it to C. I will make sure the characters are greater
+than 0 to signify that it's not an EOF. 
+
+Complete
+Actual Time	00 HH 24 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+I finished this activity quickly and easily. I used a while 
+statement in conjunction with if statements in order to accomplish
+my task. I had no issues with this program. I ended up changing my
+while statement to use EOF per the Professor's advice.
+
+================================================================

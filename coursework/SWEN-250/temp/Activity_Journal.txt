@@ -1,0 +1,71 @@
+SWEN-250 Project Activity Journal
+Home Security "C" Project - Part 1
+
+Name:
+
+===========  Stage 1  ==========================================
+Start
+Estimated Time	HH MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+===========  Stage 2  ==========================================
+Start
+Estimated Time	HH MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+===========  Stage 3  ==========================================
+Start
+Estimated Time	HH MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+===========  Stage 4  ==========================================
+Start
+Estimated Time	HH MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+===========  Stage 5  ==========================================
+Start
+Estimated Time	HH MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+===========  PROJECT PART 1 SUMMARY REFLECTION  =======================
+(Replace this text with a couple of paragraphs summarizing your
+experience with this project. What is too easy or too hard? What
+was the most challenging technical problem you faced? How
+did your estimated and actual time compare? Did your estimates
+improve as you advanced to later stages? Why or why not?)
+================================================================

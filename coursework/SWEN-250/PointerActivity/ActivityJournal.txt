@@ -1,0 +1,24 @@
+SWEN-250 Activity Reflection
+
+Name: Colin Fausnaught
+
+================================================================
+Start
+Estimated Time	1 HH 15 MM
+Plan:
+(Order of implementation, testing approach, etc.)
+This seems very similar to the project. I figured out how to use 
+Makefile's early so I won't have any problems there. I just have
+to find out how to pass pointers correctly and then store the
+variables similar to a CSV (but with $ signs).
+
+Complete
+Actual Time	1 HH 32 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+My only issue with this program was understanding how to pass 
+pointers to the functions. I figured out the other basic things 
+like reading a line quickly because I already knew how to accomplish
+that task from the Project.
+
+================================================================

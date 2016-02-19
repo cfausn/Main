@@ -1,0 +1,118 @@
+SWEN-250 Project Activity Journal
+Home Security "C" Project - Part 1
+
+Name: Colin Fausnaught
+
+===========  Stage 1  ==========================================
+Start
+Estimated Time	1 HH 00 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+Because we have worked so frequently with CSV lines, I do not forsee
+many issues with this part of the project. However I will probably
+have to either make or find an equalivalent function of the "split"
+function from ruby to accomplish my tasks.
+
+Complete
+Actual Time	4 HH 30 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+I had a lot of issues with this part of the project. Particularly
+because I had a lot of issues with the CSV inputs. I ended up reading
+about pointers and using those for the CSV input. Now I will have
+to move these values into the data structures specified in the other
+stages of the program. (ratio 4.5)
+
+===========  Stage 2  ==========================================
+Start
+Estimated Time	1 HH 15 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+I need to start using the structs specfied in the program in order
+to accomplish this stage of the project. I can repurpose a lot
+of the code already used in the previous stage to accomplish this.
+
+Complete
+Actual Time	1 HH 45 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+This part wasn't nearly as hard as the first. The logic was easily
+transfered over from the first stage. I think I over-coded a lot
+of this stage but I don't understand how I can make it easier. I 
+may need to consider using another function in the future to get 
+rid of all the long code. (ratio 1.4)
+
+===========  Stage 3  ==========================================
+Start
+Estimated Time	00 HH 30 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+I only have to add another loop to my already existing code in 
+order to accomplish the task in this stage. It doesn't seem 
+complicated at all because my current code already accomplishes a 
+lot of the tasks I was supposed to implement in this part. 
+
+Complete
+Actual Time	00 HH 20 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+Just as I expected this stage took little to no time to complete.
+All I had to do was change my coding for the "counter" variable.
+I have to now update my code to deal with overflowing buffers.
+(ratio 0.6)
+
+
+===========  Stage 4  ==========================================
+Start
+Estimated Time	00 HH 45 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+I have to figure out how to excede the buffer size in this part
+of the project. I will probably have to use the other two unused
+variables in the struct to accomplish this task.
+
+Complete
+Actual Time	00 HH 25 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+Just as I suspected this Stage was simple. All I had to do was add
+an if statement to the beginning of my code to move the buffers
+up. I am pretty sure that this will actually work perfectly for the
+next part too. (ratio 0.5)
+
+===========  Stage 5  ==========================================
+Start
+Estimated Time	01 HH 45 MM
+Plan:
+(Order of implementation, testing approach, estimation technique)
+All my code up to this point should work for this stage as well.
+However I just realized I forgot to make alerts for temperature
+and carbon monoxide. I will have to implement that before I continue.
+I will also be cleaning my code at this level so it may take longer
+than expected.
+Complete
+Actual Time	01 HH 30 MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+This part was simple (all I had to do was fix an earlier FUPA), so
+I took the oppurtunity to take care of documentation. I cleaned it 
+up the best I could (even though I didn't use a function and my code
+doesn't look necessarily beautiful). I am consistently getting the
+correct results from my test programs so I am happy to consider the
+project finished! I even did a makefile. Time to reflect... (ratio 0.85)
+
+===========  PROJECT PART 1 SUMMARY REFLECTION  =======================
+For some reason the first part of this project took me a considerable
+amount of time. I had a lot of issues with CSVs (even though we worked
+on them in the past) but I managed to work through it. I also had issues
+with understanding the function given to me to fill in. So instead
+of using that function (which I felt was too confusing) I created my own
+way to solve the problem. I liked doing it this way because it allowed me
+to code more efficiently in the long run. This way I only had to change
+my code to a very minimal amount for each stage.
+The time difference was interesting. In the end I had 5 HH 15 MM estimated,
+8 HH 30 MM actual (1.6 ratio). The time differences got a lot smaller as I
+continued on. I think this is because I designed my code from the get-go to 
+allow for adaptability. At every step I tried to think ahead since I spent
+so much time on the first step. This helped me in the long-run I think.
+================================================================
