@@ -106,7 +106,7 @@ def WebUploadNewAlbum(albumNameString,filenameString):
   password = browser.find_element_by_name('j_password')
 
   username.send_keys('cfausn@gmail.com')
-  password.send_keys('andrewhead')
+  password.send_keys('*****')
 
   password.send_keys(Keys.RETURN)
 
@@ -150,7 +150,7 @@ def WebUploadCSV(csvFileName):
   password = browser.find_element_by_name('j_password')
 
   username.send_keys('cfausn@gmail.com')
-  password.send_keys('andrewhead')
+  password.send_keys('*****')
 
   password.send_keys(Keys.RETURN)
 
@@ -196,7 +196,7 @@ def WebUploadOldAlbum(csvFileName, filenameString):
   password = browser.find_element_by_name('j_password')
 
   username.send_keys('cfausn@gmail.com')
-  password.send_keys('andrewhead')
+  password.send_keys('*****')
 
   password.send_keys(Keys.RETURN)
 
