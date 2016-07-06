@@ -1,7 +1,0 @@
-checkin Betty 12
-checkin Dawn 8
-checkin Carla 9
-board 12
-checkin Yolanda 20
-checkin Zadoc 18
-board 9
