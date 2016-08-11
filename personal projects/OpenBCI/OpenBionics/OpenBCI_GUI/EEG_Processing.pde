@@ -851,7 +851,7 @@ class EEG_Processing {
 
     //**cf** EEG Hacker stuff used for this project
     
-    
+    /*
     
     int ocChan = 6;
     if(fftData != null) findPeakFrequency(fftData,ocChan);
@@ -915,14 +915,14 @@ class EEG_Processing {
         else {
           hand.write("23");
           isRocking = !isRocking;
-        }*/
+        }
         
         oldCommand = "23";
         timeOfLastRock = millis();
         isMoving = false;
       }
     }
-
+    */
 
     //loop over each EEG channel
     for (int Ichan=0; Ichan < nchan; Ichan++) {  
